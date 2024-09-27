@@ -137,7 +137,7 @@
                                         <form action="cart" method="post" accept-charset="UTF-8">
 
                                             <input type="hidden" value="3"  name="id"/>
-                                            <input type="hidden" value="Ai cũng bắt đầu từ đâu đó"  name="title"/>
+                                            <input type="hidden" value="Ai cũng phải bắt đầu từ đâu đó"  name="title"/>
                                             <input type="hidden" value="HieuThuHai"  name="author"/>
                                             <input type="hidden" value="5,99"  name="price"/>
                                             <input type="hidden" value="https://i.scdn.co/image/ab67616d0000b273c006b0181a3846c1c63e178f"  name="thumbnail"/>

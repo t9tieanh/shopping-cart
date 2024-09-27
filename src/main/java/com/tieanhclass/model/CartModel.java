@@ -1,5 +1,6 @@
 package com.tieanhclass.model;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,6 +63,14 @@ public class CartModel {
                 return;
             }
         }
+    }
+
+    public double totalPrice () throws ParseException {
+        double totalPrice = 0;
+        for (CartDetailModel cartDetailModel : cartDetailModels) {
+            totalPrice += cartDetailModel.totalPrice();
+        }
+        return totalPrice;
     }
 
 }

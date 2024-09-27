@@ -13,7 +13,7 @@
 
                 <div class="col-3">
                     <p> Source Code on Github
-                        <a href="https://github.com/t9tieanh/basic-web"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/t9tieanh/shopping-cart"><i class="fab fa-github"></i></a>
                     </p>
                 </div>
             </div>
