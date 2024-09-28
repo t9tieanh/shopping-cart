@@ -56,6 +56,20 @@ public class CartModel {
         );
     }
 
+    public void addItem (CartDetailModel cartDetailModel) {
+        for (CartDetailModel item : cartDetailModels) {
+            if (cartDetailModel.getProduct().getId().equals(
+                    item.getProduct().getId()
+            )) {
+                item.setQuantity(cartDetailModel.getQuantity());
+                return;
+            }
+        }
+        cartDetailModels.add(
+                cartDetailModel
+        );
+    }
+
     public void removeItem(String idDelete) {
         for (int i = cartDetailModels.size() - 1; i >= 0; i--) {
             if (cartDetailModels.get(i).getProduct().getId().equals(idDelete)) {

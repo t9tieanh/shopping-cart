@@ -33,29 +33,24 @@ public class CartController extends HttpServlet {
         rd.forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+
         CartModel cartModel = (CartModel) SessionUtils.getInstance().getValue(request, SessionConstants.SESSION);
         if (cartModel == null) {
             cartModel = new CartModel();
             SessionUtils.getInstance().putValue(request, SessionConstants.SESSION, cartModel);
         }
 
-        String id = request.getParameter("id");
-        String title = request.getParameter("title");
-        String author = request.getParameter("author");
-        String price = request.getParameter("price");
-        String thumbnail = request.getParameter("thumbnail");
-        String quantity = request.getParameter("quantity");
+        HttpUtils httpUtils = HttpUtils.of(request.getReader());
 
-        ProductModel productModel = new ProductModel(id,title,author,price,thumbnail);
 
-        cartModel.addItem(productModel);
-
-        RequestDispatcher rd = request.getRequestDispatcher("/views/cart.jsp");
-        request.setAttribute("model", cartModel);
-        rd.forward(request, response);
+        CartDetailModel cartDetailModel = httpUtils.toModel(CartDetailModel.class);
+        cartModel.addItem(cartDetailModel);// Lấy id từ đối tượng
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 
     @Override

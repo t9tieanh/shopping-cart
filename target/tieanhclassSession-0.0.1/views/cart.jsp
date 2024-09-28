@@ -60,41 +60,56 @@
 
                                         <c:forEach var="item" items="${model.cartDetailModels}">
 
-                                            <!-- Product 1 -->
-                                            <div class="row mb-4 d-flex justify-content-between align-items-center">
-                                                <input type="hidden" name="id" value="item.product.id">
-                                                <div class="col-md-2 col-lg-2 col-xl-2">
-                                                    <img src="${item.product.thumbnail}"
-                                                         class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                            <form class="cart-form">
+
+
+                                                <input type="hidden" value="${item.product.id}"  name="id"/>
+<%--                                                <input type="hidden" value="MEDICINE (2024)"  name="title"/>--%>
+<%--                                                <input type="hidden" value="Coldzy"  name="author"/>--%>
+<%--                                                <input type="hidden" value="5,99"  name="price"/>--%>
+<%--                                                <input type="hidden" value="https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_jpeg/cover/1/1/b/4/11b401e973d960939b9845c34b66dd42.jpg"  name="thumbnail"/>--%>
+
+                                                <!-- Product 1 -->
+                                                <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                                    <input type="hidden" name="id" value="item.product.id">
+                                                    <div class="col-md-2 col-lg-2 col-xl-2">
+                                                        <img src="${item.product.thumbnail}"
+                                                             class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                                        <h6 class="text-muted">${item.product.title}</h6>
+                                                        <h6 class="mb-0">${item.product.author}</h6>
+                                                        <button style="margin-top: 10px" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sm me-1 mb-2 remove-item" data-mdb-tooltip-init
+                                                                title="Remove item" data-id="${item.product.id}">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex" style="min-width: 170px">
+                                                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <input id="form1" min="0" name="quantity" value="${item.quantity}" type="number"
+                                                               class="form-control form-control-sm quantity-input" data-price="${item.product.price}">
+                                                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+<%--                                                        <button style="margin-top: 10px" type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sm me-1 mb-2 remove-item" data-mdb-tooltip-init--%>
+<%--                                                                title="Save item" data-id="${item.product.id}" >--%>
+<%--                                                            <i class="fas fa-bookmark"></i>--%>
+<%--                                                        </button>--%>
+                                                    </div>
+                                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                        <h6 class="mb-0">${item.product.price} $</h6>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-3 col-lg-3 col-xl-3">
-                                                    <h6 class="text-muted">${item.product.title}</h6>
-                                                    <h6 class="mb-0">${item.product.author}</h6>
-                                                    <button style="margin-top: 10px" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sm me-1 mb-2 remove-item" data-mdb-tooltip-init
-                                                             title="Remove item" data-id="${item.product.id}">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                    <button style="margin-top: 10px" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-sm me-1 mb-2 remove-item" data-mdb-tooltip-init
-                                                            title="Save item" data-id="${item.product.id}" >
-                                                        <i class="fas fa-bookmark"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
-                                                    <input id="form1" min="0" name="quantity" value="${item.quantity}" type="number"
-                                                           class="form-control form-control-sm quantity-input" data-price="${item.product.price}">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                    <h6 class="mb-0">${item.product.price} $</h6>
-                                                </div>
-                                            </div>
+
+
+
+                                            </form>
+
+
 
 
 
@@ -159,10 +174,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 
-    var checkboxes = document.querySelectorAll('.product-checkbox');
-    checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', calculateTotal);
-    });
+    // var checkboxes = document.querySelectorAll('.product-checkbox');
+    // checkboxes.forEach((checkbox) => {
+    //     checkbox.addEventListener('change', calculateTotal);
+    // });
 
 
     $(".remove-item").click(function() {
@@ -179,6 +194,37 @@
             },
             error: function(xhr, status, error) {
                 console.error('Lỗi xóa sản phẩm: ' + error);
+            }
+        });
+    });
+
+    $(".cart-form").on('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+
+        const id = $(this).find('input[name="id"]').val();
+        const quantity = $(this).find('input[name="quantity"]').val();
+
+        // Cập nhật đối tượng cartDetails
+        cartDetails = {
+            product: {
+                id: id
+            },
+            quantity: parseInt(quantity) // Chuyển quantity thành số nguyên
+        };
+
+        console.log(cartDetails);
+
+        // Gửi dữ liệu bằng AJAX
+        $.ajax({
+            url: "cart", // Đường dẫn đến API xử lý dữ liệu giỏ hàng
+            type: "POST",
+            contentType: "application/json", // Gửi dữ liệu dưới dạng JSON
+            data: JSON.stringify(cartDetails), // Chuyển đổi đối tượng thành chuỗi JSON
+            success: function(response) {
+                console.log("change quantity success !")
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Xử lý lỗi nếu có
             }
         });
     });

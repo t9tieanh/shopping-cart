@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<c:url value='/template/css/style.css' />" />
     <%--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">--%>
     <link rel="stylesheet" href="<c:url value='/template/css/header.css' />" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
         @media (min-width: 1025px) {
@@ -62,7 +63,7 @@
                                     <div class="productList">
 
 
-                                        <form action="cart" method="post">
+                                        <form class="cart-form" >
 
                                             <input type="hidden" value="1"  name="id"/>
                                             <input type="hidden" value="Best Of Charlie"  name="title"/>
@@ -83,11 +84,11 @@
                                                     <h6 class="mb-0">5,99 $</h6>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 decrease-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input" data-price="44.00">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input " data-price="44.00">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 increase-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -99,7 +100,7 @@
                                         </form>
 
                                         <!-- Product 2 -->
-                                        <form action="cart" method="post">
+                                        <form class="cart-form">
 
                                             <input type="hidden" value="2"  name="id"/>
                                             <input type="hidden" value="1989 (Taylor's Version)"  name="title"/>
@@ -118,11 +119,11 @@
                                                     <h6 class="mb-0">5,99 $</h6>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 decrease-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input" data-price="44.00">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input " data-price="44.00">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 increase-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -134,14 +135,14 @@
                                         </form>
 
                                         <!-- Product 3 -->
-                                        <form action="cart" method="post" accept-charset="UTF-8">
+                                        <form class="cart-form">
 
                                             <input type="hidden" value="3"  name="id"/>
                                             <input type="hidden" value="Ai cũng phải bắt đầu từ đâu đó"  name="title"/>
                                             <input type="hidden" value="HieuThuHai"  name="author"/>
                                             <input type="hidden" value="5,99"  name="price"/>
                                             <input type="hidden" value="https://i.scdn.co/image/ab67616d0000b273c006b0181a3846c1c63e178f"  name="thumbnail"/>
-                                            <input type="hidden" value="1"  name="quantity"/>
+<%--                                            <input type="hidden" value="1"  name="quantity"/>--%>
 
                                             <div class="row mb-4 d-flex justify-content-between align-items-center">
                                                 <div class="col-md-2 col-lg-2 col-xl-2">
@@ -153,11 +154,11 @@
                                                     <h6 class="mb-0">5,99 $</h6>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 decrease-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input" data-price="44.00">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input " data-price="44.00">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 increase-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -170,7 +171,7 @@
 
 
                                         <!-- Product 3 -->
-                                        <form action="cart" method="post">
+                                        <form class="cart-form">
 
                                             <input type="hidden" value="4"  name="id"/>
                                             <input type="hidden" value="MEDICINE (2024)"  name="title"/>
@@ -189,11 +190,11 @@
                                                     <h6 class="mb-0">5,99 $</h6>
                                                 </div>
                                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 decrease-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                         <i class="fas fa-minus"></i>
                                                     </button>
-                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input" data-price="44.00">
-                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-sm quantity-input " data-price="44.00">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2 increase-quantity" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
                                                 </div>
@@ -224,6 +225,62 @@
 </div>
 
 <%@ include file="/common/footer.jsp" %>
+
+<script>
+
+    $(".decrease-quantity").on('click', function(event) {
+        event.preventDefault(); // Ngăn không cho form submit
+        $(this).parent().find('input[type=number]').stepDown(); // Giảm số lượng
+    });
+
+    $(".increase-quantity").on('click', function(event) {
+        event.preventDefault(); // Ngăn không cho form submit
+        $(this).parent().find('input[type=number]').stepUp(); // Tăng số lượng
+    });
+
+
+    var cartDetails = {};
+
+    $(".cart-form").on('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+
+        const id = $(this).find('input[name="id"]').val();
+        const title = $(this).find('input[name="title"]').val();
+        const author = $(this).find('input[name="author"]').val();
+        const price = $(this).find('input[name="price"]').val().replace(',', '.'); // Đổi dấu phẩy thành dấu chấm
+        const quantity = $(this).find('input[name="quantity"]').val();
+        const thumbnail = $(this).find('input[name="thumbnail"]').val();
+
+        // Cập nhật đối tượng cartDetails
+        cartDetails = {
+            product: {
+                id: id,
+                title: title,
+                author: author,
+                price: price, // Giữ giá ở định dạng chuỗi
+                thumbnail : thumbnail
+            },
+            quantity: parseInt(quantity) // Chuyển quantity thành số nguyên
+        };
+
+        console.log(cartDetails);
+
+        // Gửi dữ liệu bằng AJAX
+        $.ajax({
+            url: "cart", // Đường dẫn đến API xử lý dữ liệu giỏ hàng
+            type: "POST",
+            contentType: "application/json", // Gửi dữ liệu dưới dạng JSON
+            data: JSON.stringify(cartDetails), // Chuyển đổi đối tượng thành chuỗi JSON
+            success: function(response) {
+                window.location.href = 'cart';
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Xử lý lỗi nếu có
+            }
+        });
+    });
+
+</script>
 
 
 
